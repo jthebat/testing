@@ -167,7 +167,9 @@ function makeConnection() {
     myPeerConnection.addEventListener("icecandidate", handleIce);
     myPeerConnection.addEventListener("addstream", handleAddStream);
     //console.log(myStream.getTracks());
-    myStream.getTracks().forEach((track) => myPeerConnection.addTrack(track, myStream));
+    setTimeout(() => {
+        myStream.getTracks().forEach((track) => myPeerConnection.addTrack(track, myStream));
+    }, 5000);
 }
 
 function handleIce(data) {
